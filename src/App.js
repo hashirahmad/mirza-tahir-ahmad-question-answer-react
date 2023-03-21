@@ -1,13 +1,13 @@
 import './App.css'; 
 import SimpleContainer from './components/SimpleContainer';
-import SearchQuestion from './components/Search';
+import SearchQuestionPlayer from './components/SearchQuestionPlayer';
 
 function App() {
   return (
     <div className="App">
       <SimpleContainer
         childUi={
-            <SearchQuestion />
+            <SearchQuestionPlayer />
         } 
       />
     </div>

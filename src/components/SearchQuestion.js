@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Search.js                                          :+:      :+:    :+:   */
+/*   SearchQuestion.js                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Hashir <hashir@coinmode.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 20:26:04 by Hashir            #+#    #+#             */
-/*   Updated: 2023/03/21 20:57:41 by Hashir           ###   ########.fr       */
+/*   Updated: 2023/03/21 21:52:49 by Hashir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 import api from './Api';
 
-export default function SearchQuestion() {
+export default function SearchQuestion({ handleQuestionSelected }) {
   const [open, setOpen] = React.useState(false);
   const [questions, setQuestions] = React.useState([]);
   const [loading, setLoading] = React.useState(false)
@@ -44,14 +44,18 @@ export default function SearchQuestion() {
 
   return (
     <Autocomplete
-      id="asynchronous-demo"
+      id="SearchQuestion"
       sx={{ width: 600 }}
       open={open}
       onOpen={() => {
         setOpen(true);
       }}
-      onClose={() => {
+      onClose={(e) => {
         setOpen(false);
+        const index = parseInt(e.target.getAttribute('data-option-index'))
+        const questionObject = questions[index]
+        console.log(handleQuestionSelected, typeof handleQuestionSelected)
+        handleQuestionSelected({ questionObject })
       }}
       onInputChange={(e) => {
         e.preventDefault()
