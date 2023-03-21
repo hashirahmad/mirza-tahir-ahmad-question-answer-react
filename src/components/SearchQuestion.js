@@ -6,7 +6,7 @@
 /*   By: Hashir <hashir@coinmode.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 20:26:04 by Hashir            #+#    #+#             */
-/*   Updated: 2023/03/21 21:52:49 by Hashir           ###   ########.fr       */
+/*   Updated: 2023/03/21 22:29:55 by Hashir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ export default function SearchQuestion({ handleQuestionSelected }) {
         setOpen(false);
         const index = parseInt(e.target.getAttribute('data-option-index'))
         const questionObject = questions[index]
-        console.log(handleQuestionSelected, typeof handleQuestionSelected)
         handleQuestionSelected({ questionObject })
       }}
       onInputChange={(e) => {
